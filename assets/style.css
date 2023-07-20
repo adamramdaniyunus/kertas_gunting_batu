@@ -1,0 +1,230 @@
+@font-face {
+    font-family: "Lumanosimo";
+    src: url(./fonts/Lumanosimo/Lumanosimo-Regular.ttf);
+}
+
+
+:root {
+    --backround: #0F3460;
+    --button: #FD841F;
+    --text: #F1EFDC;
+    --option: rgb(255, 192, 110);
+    --shadow: 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lumanosimo', sans-serif;
+    background-color: var(--backround);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+}
+
+.container img {
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    z-index: -1;
+}
+
+.container p {
+    padding: 10px 5px;
+    background-color: var(--button);
+    border-radius: 1rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.container p:hover {
+    background-color: #15133C;
+    border: 1px solid #Fff;
+}
+
+#background {
+    animation: spin 50s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.main-game {
+    height: 100vh;
+    width: 100vw;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.divider {
+    width: 2px;
+    background-color: black;
+    height: 100%;
+}
+
+.player-state,
+.bot-state {
+    flex: 1;
+}
+
+.player-state,
+.bot-state {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.bot-state {
+    background-color: var(--backround);
+}
+
+.option {
+    position: absolute;
+    bottom: 10%;
+}
+
+.option .select-option {
+    display: flex;
+    gap: 100px;
+}
+
+.kertas,
+.gunting,
+.batu {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    padding: 18px;
+    background-color: var(--option);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+.player-state h1,
+.bot-state h1 {
+    font-size: 4rem;
+    color: var(--text);
+}
+
+.results {
+    position: absolute;
+    margin: auto;
+    font-size: 4rem;
+    z-index: 50;
+    color: var(--text);
+}
+
+#judul,
+#hasil {
+    text-align: center;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 480px) {
+
+    /* CSS untuk orientasi landscape */
+    body {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        overflow-x: hidden;
+        position: fixed;
+        top: 100%;
+        left: 0;
+    }
+
+    .player-state,
+    .bot-state {
+        display: flex;
+        flex-direction: column;
+        background-color: red;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100vw;
+    }
+
+    .option .select-option {
+        display: flex;
+        gap: 10px;
+    }
+
+    .option {
+        position: absolute;
+        bottom: 30%;
+    }
+
+    .kertas,
+    .gunting,
+    .batu {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        padding: 18px;
+        background-color: var(--option);
+        cursor: pointer;
+        box-shadow: var(--shadow);
+    }
+
+    .results {
+        position: absolute;
+        margin: auto;
+        font-size: 2rem;
+        z-index: 50;
+        color: var(--text);
+    }
+
+    #judul,
+    #hasil {
+        text-align: center;
+    }
+
+    .player-state h1,
+    .bot-state h1 {
+        font-size: 2rem;
+        color: var(--text);
+    }
+}

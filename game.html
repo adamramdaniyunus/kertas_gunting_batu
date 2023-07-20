@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <script>
+        function navigateToHome() {
+            event.preventDefault();
+            // Mengubah lokasi halaman tanpa refresh
+            window.history.pushState({}, '', 'index.html');
+            // Memuat konten index.html menggunakan fetch
+            fetch('index.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('main').innerHTML = data;
+                });
+        }
+    </script>
+    <title>Games</title>
+</head>
+<body>
+    <main class="main-game">
+        <div class="bot-state">
+            <h1 id="botResult"></h1>
+        </div>
+        <div class="results">
+            <div id="judul">VS</div>
+            <div id="hasil"></div>
+        </div>
+        <div class="divider"></div>
+        <div class="player-state">
+            <h1 id="result"></h1>
+            <div class="option">
+                <div class="select-option">
+                    <option onclick="pilihan('✋🏻')" class="kertas">✋🏻</option>
+                    <option onclick="pilihan('✌🏻')" class="gunting">✌🏻</option>
+                    <option onclick="pilihan('✊🏻')" class="batu">✊🏻</option>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+<script src="assets/app.js"></script>
+</body>
+</html>
